@@ -1,20 +1,10 @@
-/**
- * ═══════════════════════════════════════════════════════════════
- *  CONFIGURAÇÃO DA BARBEARIA — edite só este arquivo
- * ═══════════════════════════════════════════════════════════════
- *  Troque nome, telefone, endereço, serviços e textos.
- *  Fotos: coloque em /img/ e preencha heroImage (ex: "img/fachada.jpg").
- *  Avaliações: só coloque depoimentos REAIS (nome + texto).
- * ═══════════════════════════════════════════════════════════════
- */
 window.BARBEARIA = {
-  name: "Barberia Do Alemão",
-  initials: "BA",
+  name: "Barbearia Do Alemão",
   cityLabel: "Ribeirão do Pinhal · PR",
 
-  tagline: "Corte, barba e acabamento com horário marcado.",
+  tagline: "Corte, barba e navalha — atendimento na cadeira, com hora marcada.",
   about:
-    "Barbearia em Ribeirão do Pinhal. Atendimento por agendamento para respeitar seu tempo na cadeira. Valores abaixo são os praticados na unidade — confirme disponibilidade pelo WhatsApp.",
+    "Barbearia de bairro em Ribeirão do Pinhal: ambiente limpo, conversa de respeito e acabamento caprichado. Os valores abaixo são os da unidade; confirme horário pelo WhatsApp antes de vir.",
 
   phoneDisplay: "(43) 99614-7594",
   phoneWhatsApp: "5543996147594",
@@ -25,13 +15,11 @@ window.BARBEARIA = {
     cep: "86490-000",
   },
 
-  /** Link de agendamento online (Trimmar, Fresha, etc.) — deixe "" se não usar */
   bookingUrl: "https://trimmar.com.br/p/barberia-do-alemao",
 
-  /** Caminho local da foto da barbearia — deixe "" para fundo só com cor */
-  heroImage: "",
+  logoImage: "img/logo.jpg",
+  barberImage: "img/barbeiro.jpg",
 
-  /** Horário — ajuste conforme a loja; remova itens se não quiser a seção */
   hours: [
     { days: "Terça a sexta", time: "Consulte pelo WhatsApp" },
     { days: "Sábado", time: "Consulte pelo WhatsApp" },
@@ -53,9 +41,7 @@ window.BARBEARIA = {
     },
   ],
 
-  /** Depoimentos reais — deixe [] se ainda não tiver */
   reviews: [],
-
   instagram: "",
   facebook: "",
 };

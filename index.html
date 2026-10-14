@@ -3,33 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#111110" />
+  <meta name="theme-color" content="#1a0f0a" />
   <meta name="description" content="" id="metaDescription" />
-  <title id="docTitle">Barbearia</title>
+  <title id="docTitle">Barbearia Do Alemão</title>
+  <link rel="icon" href="img/logo.jpg" type="image/jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/main.css" />
   <script src="js/config.js"></script>
   <script type="application/ld+json" id="schemaJson"></script>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Ir ao conteúdo</a>
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-  <header class="header">
+  <div class="loader" id="loader" aria-live="polite">
+    <img class="loader-logo" id="loaderLogo" alt="" width="160" height="160" />
+    <div class="loader-bar"><span></span></div>
+  </div>
+
+  <div class="cursor-wrap" id="cursorWrap" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <header class="header" id="header">
     <a class="brand" href="#inicio">
-      <span class="brand-mark" id="brandMark">BB</span>
-      <span class="brand-name" id="brandName">Barbearia</span>
+      <img class="brand-logo" id="brandLogo" alt="" width="48" height="48" />
+      <span class="brand-name" id="brandName"></span>
     </a>
-    <nav class="nav" aria-label="Menu principal">
-      <a href="#servicos">Serviços</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#agendar">Agendar</a>
-      <a href="#contato">Contato</a>
+    <nav class="nav" aria-label="Menu">
+      <a href="#servicos" data-magnetic>Serviços</a>
+      <a href="#sobre" data-magnetic>Sobre</a>
+      <a href="#agendar" data-magnetic>Agendar</a>
+      <a href="#contato" data-magnetic>Contato</a>
     </nav>
-    <a class="btn btn--primary header-cta" id="headerWhats" href="#">WhatsApp</a>
-    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="navMobile" aria-label="Abrir menu">
-      <span></span><span></span>
+    <a class="btn btn-gold header-cta" id="headerWhats" href="#" data-magnetic>WhatsApp</a>
+    <button type="button" class="menu-btn" aria-expanded="false" aria-controls="navMobile" aria-label="Menu">
+      <span></span><span></span><span></span>
     </button>
   </header>
 
@@ -40,113 +52,137 @@
     <a href="#contato">Contato</a>
   </div>
 
-  <main id="conteudo">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack"></div>
+  </div>
+
+  <main>
     <section class="hero" id="inicio">
-      <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <p class="hero-place" id="heroPlace"></p>
-        <h1 class="hero-title" id="heroTitle"></h1>
-        <p class="hero-tagline" id="heroTagline"></p>
-        <div class="hero-actions">
-          <a class="btn btn--primary btn--lg" href="#agendar">Agendar horário</a>
-          <a class="btn btn--ghost btn--lg" id="heroWhats" href="#">Chamar no WhatsApp</a>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-layout">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" id="heroPlace"></p>
+          <h1 class="hero-title">
+            <span class="line" id="heroTitleLine1"></span>
+            <span class="line line--gold" id="heroTitleLine2"></span>
+          </h1>
+          <p class="hero-lead" id="heroTagline"></p>
+          <div class="hero-btns">
+            <a class="btn btn-gold btn-xl" href="#agendar" data-magnetic>Agendar agora</a>
+            <a class="btn btn-line btn-xl" id="heroWhats" href="#" data-magnetic>WhatsApp</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal" data-tilt>
+          <div class="hero-frame">
+            <img class="hero-photo" id="heroPhoto" alt="Barbeiro — Barbearia Do Alemão" width="600" height="750" />
+            <img class="hero-badge" id="heroBadge" alt="" width="140" height="140" />
+          </div>
         </div>
       </div>
+      <a class="scroll-cue" href="#servicos" aria-label="Ver serviços">
+        <span>Role</span>
+        <i></i>
+      </a>
     </section>
 
-    <section class="block" id="servicos">
-      <div class="wrap">
-        <header class="block-head">
-          <h2>Serviços e valores</h2>
-          <p>Duração estimada e preço na unidade. Confirme pelo WhatsApp antes de ir.</p>
+    <section class="section" id="servicos">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="section-num">01</span>
+          <h2>Serviços &amp; valores</h2>
+          <p>Preços praticados na unidade. Toque em um serviço para agendar.</p>
         </header>
-        <div class="services" id="servicesList" role="list"></div>
+        <div class="services-track" id="servicesList"></div>
       </div>
     </section>
 
-    <section class="block block--alt" id="sobre">
-      <div class="wrap about-grid">
-        <div>
-          <h2>Sobre a barbearia</h2>
-          <p class="about-text" id="aboutText"></p>
+    <section class="section section-dark" id="sobre">
+      <div class="container sobre-grid">
+        <div class="sobre-photo reveal" data-tilt>
+          <img id="sobrePhoto" alt="Equipe Barbearia Do Alemão" width="520" height="640" />
+          <div class="sobre-photo-ring" aria-hidden="true"></div>
         </div>
-        <div class="hours-panel" id="hoursPanel">
-          <h3>Horários</h3>
-          <dl class="hours-list" id="hoursList"></dl>
+        <div class="sobre-copy reveal">
+          <span class="section-num">02</span>
+          <h2>Quem cuida do seu visual</h2>
+          <p id="aboutText"></p>
+          <div class="hours-card" id="hoursPanel">
+            <h3>Horários</h3>
+            <dl id="hoursList"></dl>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="block" id="reviewsBlock" hidden>
-      <div class="wrap">
-        <h2>O que dizem os clientes</h2>
-        <div class="reviews" id="reviewsList"></div>
+    <section class="section" id="reviewsBlock" hidden>
+      <div class="container reveal">
+        <h2>Avaliações</h2>
+        <div class="reviews-grid" id="reviewsList"></div>
       </div>
     </section>
 
-    <section class="block block--alt" id="agendar">
-      <div class="wrap book-grid">
-        <div>
-          <h2>Agendar</h2>
-          <p>Escolha o serviço e envie a mensagem pronta no WhatsApp. Resposta em horário comercial.</p>
-          <ol class="steps">
-            <li>Selecione o serviço</li>
-            <li>Informe dia e nome (opcional)</li>
-            <li>Confirme no WhatsApp</li>
-          </ol>
-          <p class="book-online" id="bookOnlineWrap" hidden>
-            Ou use o agendamento online:
-            <a id="bookOnlineLink" href="#" target="_blank" rel="noopener">abrir sistema de reservas</a>
+    <section class="section section-book" id="agendar">
+      <div class="container book-layout">
+        <div class="book-info reveal">
+          <span class="section-num">03</span>
+          <h2>Reserve sua cadeira</h2>
+          <p>Montamos a mensagem no WhatsApp — você só confirma o horário.</p>
+          <ul class="book-steps">
+            <li><strong>1</strong> Escolha o serviço</li>
+            <li><strong>2</strong> Dia e nome (se quiser)</li>
+            <li><strong>3</strong> Enviar no WhatsApp</li>
+          </ul>
+          <p class="book-alt" id="bookOnlineWrap" hidden>
+            Sistema online: <a id="bookOnlineLink" href="#" target="_blank" rel="noopener">abrir agendamento</a>
           </p>
         </div>
-        <form class="book-form" id="bookForm">
-          <label class="field">
+        <form class="book-panel reveal" id="bookForm">
+          <label class="input">
             <span>Serviço</span>
             <select name="service" id="serviceSelect" required></select>
           </label>
-          <label class="field">
+          <label class="input">
             <span>Dia preferido</span>
             <input type="date" name="date" />
           </label>
-          <label class="field">
+          <label class="input">
             <span>Seu nome</span>
             <input type="text" name="name" autocomplete="name" placeholder="Opcional" />
           </label>
-          <button type="submit" class="btn btn--primary btn--lg btn--block">Enviar pedido no WhatsApp</button>
+          <button type="submit" class="btn btn-gold btn-xl btn-full" data-magnetic>Abrir WhatsApp</button>
         </form>
       </div>
     </section>
 
-    <section class="block" id="contato">
-      <div class="wrap contact-grid">
-        <div>
-          <h2>Contato e endereço</h2>
+    <section class="section" id="contato">
+      <div class="container contact-layout reveal">
+        <div class="contact-card">
+          <span class="section-num">04</span>
+          <h2>Onde estamos</h2>
           <address id="addressBlock"></address>
-          <p class="contact-phone">
-            <a id="phoneLink" href="#"></a>
-          </p>
-          <div class="contact-actions">
-            <a class="btn btn--primary" id="contactWhats" href="#">WhatsApp</a>
-            <a class="btn btn--ghost" id="mapsLink" href="#" target="_blank" rel="noopener">Como chegar</a>
+          <a class="phone-big" id="phoneLink" href="#"></a>
+          <div class="contact-btns">
+            <a class="btn btn-gold" id="contactWhats" href="#">WhatsApp</a>
+            <a class="btn btn-line" id="mapsLink" href="#" target="_blank" rel="noopener">Maps</a>
           </div>
           <p class="social" id="socialLinks" hidden></p>
         </div>
-        <div class="map">
-          <iframe id="mapFrame" title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="map-box">
+          <iframe id="mapFrame" title="Mapa" loading="lazy" allowfullscreen></iframe>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
+    <img class="footer-logo" id="footerLogo" alt="" width="72" height="72" />
     <p><span id="footerName"></span> · <span id="footerYear"></span></p>
-    <p class="footer-note">Site pronto para personalizar — edite o arquivo <code>js/config.js</code>.</p>
   </footer>
 
   <nav class="dock" aria-label="Atalhos">
-    <a href="#agendar" class="dock-active">Agendar</a>
+    <a href="#agendar" class="dock-on">Agendar</a>
     <a id="dockPhone" href="#">Ligar</a>
-    <a id="dockWhats" href="#">WhatsApp</a>
+    <a id="dockWhats" href="#">Zap</a>
   </nav>
 
   <script src="js/app.js" defer></script>
